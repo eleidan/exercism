@@ -1,0 +1,19 @@
+version: '2.2'
+
+volumes:
+  bash-history: {}
+  configs: {}
+  hex-files: {}
+  mix-files: {}
+
+services:
+  dev:
+    build: .
+    image: exercism-elixir
+    user: phantom
+    volumes:
+      - .:/home/phantom/app
+      - bash-history:/home/phantom/bash-history
+      - configs:/home/phantom/.config/
+      - hex-files:/home/phantom/.hex
+      - mix-files:/home/phantom/.mix
